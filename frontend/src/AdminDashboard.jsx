@@ -103,17 +103,24 @@ const AdminDashboard = () => {
             </header>
 
             <div className={styles.dashboardGrid}>
-                {/* Gráfico de Barras */}
-                <div className={styles.card}>
-                    <h2>Resumen de Respuestas (Sí)</h2>
+                {/* Gráfico de Barras Apiladas */}
+                <div className={styles.card} style={{ gridColumn: 'span 2' }}>
+                    <h2>Resumen de Respuestas</h2>
                     <div style={{ width: '100%', height: 300 }}>
                         <ResponsiveContainer>
-                            <BarChart data={chartData}>
+                            <BarChart data={chartData} margin={{ top: 5, right: 10, left: -20, bottom: 5 }}>
                                 <CartesianGrid strokeDasharray="3 3" />
-                                <XAxis dataKey="name" />
-                                <YAxis />
+                                <XAxis
+                                    dataKey="name"
+                                    tick={{ fontSize: 12 }}
+                                    angle={-45}
+                                    textAnchor="end"
+                                    height={80}
+                                />
+                                <YAxis tick={{ fontSize: 12 }} />
                                 <Tooltip />
-                                <Bar dataKey="yes" fill="#48bb78" name="Sí" />
+                                <Bar dataKey="yes" stackId="a" fill="#48bb78" name="Sí" />
+                                <Bar dataKey="no" stackId="a" fill="#fc8181" name="No" />
                             </BarChart>
                         </ResponsiveContainer>
                     </div>

@@ -172,6 +172,11 @@
         padding: 0.4rem 0.8rem;
         font-size: 0.9rem;
     }
+
+    /* Ensure chart card spans full width on mobile */
+    .card[style*="gridColumn"] {
+        grid-column: 1 / -1 !important;
+    }
 }
 
 @media (max-width: 480px) {
