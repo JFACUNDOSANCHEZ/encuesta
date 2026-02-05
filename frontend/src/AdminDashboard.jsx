@@ -119,8 +119,8 @@ const AdminDashboard = () => {
                                 />
                                 <YAxis tick={{ fontSize: 12 }} />
                                 <Tooltip />
-                                <Bar dataKey="yes" stackId="a" fill="#48bb78" name="Sí" />
-                                <Bar dataKey="no" stackId="a" fill="#fc8181" name="No" />
+                                <Bar dataKey="yes" fill="#48bb78" name="Sí" />
+                                <Bar dataKey="no" fill="#fc8181" name="No" />
                             </BarChart>
                         </ResponsiveContainer>
                     </div>
