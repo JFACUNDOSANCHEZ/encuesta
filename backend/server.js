@@ -9,7 +9,26 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const SECRET_KEY = process.env.JWT_SECRET || 'v4l0r4c1on_s3cr3t_k3y_dev'; // Use environment variable in production
 
-app.use(cors());
+// CORS configuration - Allow frontend from Vercel and localhost
+const allowedOrigins = [
+    'https://encuesta-steel.vercel.app',
+    'http://localhost:5173',
+    'http://localhost:5174',
+    'http://localhost:3000'
+];
+
+app.use(cors({
+    origin: function (origin, callback) {
+        // Allow requests with no origin (like mobile apps or curl requests)
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.indexOf(origin) === -1) {
+            const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+            return callback(new Error(msg), false);
+        }
+        return callback(null, true);
+    },
+    credentials: true
+}));
 app.use(bodyParser.json());
 
 // Init Database
