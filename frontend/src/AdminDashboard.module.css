@@ -142,3 +142,112 @@
 .printOnly {
     display: none;
 }
+
+@media (max-width: 768px) {
+    .adminContainer {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .dashboardGrid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .card {
+        padding: 1.25rem;
+    }
+
+    .card h2 {
+        font-size: 1.1rem;
+    }
+
+    .historyTable th,
+    .historyTable td {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .printBtn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .adminContainer {
+        margin: 0.5rem;
+        padding: 0.75rem;
+    }
+
+    .adminContainer h1 {
+        font-size: 1.35rem;
+    }
+
+    .dashboardGrid {
+        gap: 1rem;
+    }
+
+    .card {
+        padding: 1rem;
+        border-radius: 0.75rem;
+    }
+
+    .card h2 {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .qrSection p {
+        font-size: 0.85rem;
+    }
+
+    .qrContainer svg {
+        width: 120px !important;
+        height: 120px !important;
+    }
+
+    .printBtn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.85rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Make table scrollable horizontally on mobile */
+    .historyTable {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        font-size: 0.8rem;
+    }
+
+    .historyTable th,
+    .historyTable td {
+        padding: 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    .badge {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.5rem;
+    }
+
+    /* Stack header buttons vertically on very small screens */
+    .adminContainer header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 1rem;
+    }
+
+    .adminContainer header>div:last-child {
+        width: 100%;
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .adminContainer header button {
+        flex: 1;
+        justify-content: center;
+    }
+}

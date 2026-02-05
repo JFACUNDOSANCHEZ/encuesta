@@ -151,3 +151,60 @@
 .backButton:hover {
     color: #475569;
 }
+
+@media (max-width: 768px) {
+    .loginCard {
+        padding: 2rem;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .iconWrapper {
+        width: 56px;
+        height: 56px;
+    }
+}
+
+@media (max-width: 480px) {
+    .loginContainer {
+        padding: 0.5rem;
+    }
+
+    .loginCard {
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+    }
+
+    .title {
+        font-size: 1.35rem;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .iconWrapper {
+        width: 48px;
+        height: 48px;
+    }
+
+    .icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .form {
+        gap: 1.25rem;
+    }
+
+    .input {
+        font-size: 0.95rem;
+    }
+
+    .submitButton {
+        padding: 0.65rem 0.85rem;
+        font-size: 0.95rem;
+    }
+}
