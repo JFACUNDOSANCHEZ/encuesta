@@ -7,7 +7,7 @@ const { Review, User, initDb, sequelize } = require('./database');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const SECRET_KEY = 'v4l0r4c1on_s3cr3t_k3y'; // In production, use environment variables
+const SECRET_KEY = process.env.JWT_SECRET || 'v4l0r4c1on_s3cr3t_k3y_dev'; // Use environment variable in production
 
 app.use(cors());
 app.use(bodyParser.json());
