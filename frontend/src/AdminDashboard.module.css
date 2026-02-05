@@ -1,0 +1,144 @@
+.adminContainer {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #2d3748;
+}
+
+.dashboardGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #edf2f7;
+}
+
+.card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    color: #4a5568;
+    border-bottom: 1px solid #edf2f7;
+    padding-bottom: 0.75rem;
+}
+
+.qrSection {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.qrContainer {
+    padding: 1rem;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    display: inline-block;
+}
+
+.printBtn {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: #4a5568;
+    color: white;
+    border: none;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.historyTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.historyTable th,
+.historyTable td {
+    text-align: left;
+    padding: 1rem;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.historyTable th {
+    background: #f7fafc;
+    font-weight: 600;
+}
+
+.badge {
+    padding: 0.25rem 0.6rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badgeYes {
+    background: #c6f6d5;
+    color: #22543d;
+}
+
+.badgeNo {
+    background: #fed7d7;
+    color: #822727;
+}
+
+@media print {
+
+    /* Hide everything in the container except the print-only div */
+    .adminContainer>* {
+        display: none !important;
+    }
+
+    .printOnly,
+    .printOnly * {
+        display: flex !important;
+    }
+
+    .printOnly {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: white !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        z-index: 99999;
+    }
+
+    .printOnly h1 {
+        font-size: 3.5rem !important;
+        margin-bottom: 2.5rem !important;
+        color: #1a202c !important;
+        text-align: center;
+    }
+
+    .printOnly svg {
+        width: 450px !important;
+        height: 450px !important;
+    }
+
+    .printOnly p {
+        font-size: 1.2rem !important;
+        margin-top: 2rem !important;
+        color: #718096 !important;
+    }
+}
+
+.printOnly {
+    display: none;
+}

@@ -1,0 +1,158 @@
+.container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #ffffff;
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 1.75rem;
+  color: #1a202c;
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  color: #718096;
+}
+
+.form {
+  display: flex;
+  vertical-align: top;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.questionGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.questionLabel {
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.options {
+  display: flex;
+  gap: 1rem;
+}
+
+.option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #4a5568;
+  background-color: #f8fafc;
+}
+
+.option input {
+  display: none;
+}
+
+.optionActive {
+  border-color: #4299e1;
+  background-color: #ebf8ff;
+  color: #2b6cb0;
+}
+
+.textareaGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.textarea {
+  width: 100%;
+  color: #1a202c;
+  padding: 0.85rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 0.75rem;
+  min-height: 80px;
+  max-height: 150px;
+  resize: vertical;
+  font-family: inherit;
+  box-sizing: border-box;
+  font-size: 0.95rem;
+  background-color: #ffffff;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: #4299e1;
+}
+
+.submitBtn {
+  background-color: #4299e1;
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submitBtn:hover {
+  background-color: #3182ce;
+}
+
+.submitBtn:disabled {
+  background-color: #cbd5e0;
+  cursor: not-allowed;
+}
+
+.successMessage {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.successMessage h2 {
+  color: #38a169;
+  margin-bottom: 1rem;
+}
+
+.adminLink {
+  color: #718096;
+  text-decoration: none;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: #edf2f7;
+  transition: all 0.2s;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.adminLink:hover {
+  background: #e2e8f0;
+  color: #2d3748;
+}
+
+@media (max-width: 480px) {
+  .container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+}
