@@ -6,6 +6,8 @@ import { Printer, RefreshCw, LogOut, Trash2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import styles from './AdminDashboard.module.css';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+
 const AdminDashboard = () => {
     const [stats, setStats] = useState(null);
     const [reviews, setReviews] = useState([]);
@@ -27,8 +29,8 @@ const AdminDashboard = () => {
             };
 
             const [statsRes, reviewsRes] = await Promise.all([
-                axios.get('http://localhost:5000/api/stats', config),
-                axios.get('http://localhost:5000/api/reviews', config)
+                axios.get(`${API_BASE_URL}/stats`, config),
+                axios.get(`${API_BASE_URL}/reviews`, config)
             ]);
             setStats(statsRes.data);
             setReviews(reviewsRes.data);
@@ -58,7 +60,7 @@ const AdminDashboard = () => {
 
         const token = sessionStorage.getItem('token');
         try {
-            await axios.delete(`http://localhost:5000/api/reviews/${id}`, {
+            await axios.delete(`${API_BASE_URL}/reviews/${id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             fetchData(); // Refresh data

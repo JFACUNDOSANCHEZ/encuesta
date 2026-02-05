@@ -2,11 +2,23 @@ const { Sequelize, DataTypes } = require('sequelize');
 const path = require('path');
 const bcrypt = require('bcryptjs');
 
-const sequelize = new Sequelize({
-  dialect: 'sqlite',
-  storage: path.join(__dirname, 'database_v2.sqlite'),
-  logging: false,
-});
+const isProduction = process.env.NODE_ENV === 'production' || process.env.DATABASE_URL;
+
+const sequelize = process.env.DATABASE_URL
+  ? new Sequelize(process.env.DATABASE_URL, {
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false // Required for Render/ElephantSQL/etc.
+      }
+    },
+    logging: false,
+  })
+  : new Sequelize({
+    dialect: 'sqlite',
+    storage: path.join(__dirname, 'database_v2.sqlite'),
+    logging: false,
+  });
 
 const Review = sequelize.define('Review', {
   q1: { type: DataTypes.BOOLEAN, allowNull: false },

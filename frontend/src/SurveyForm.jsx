@@ -4,6 +4,8 @@ import { ThumbsUp, ThumbsDown, Settings } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import styles from './SurveyForm.module.css';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+
 const questions = [
     { id: 'q1', text: '¿Está satisfecho con la atención recibida?' },
     { id: 'q2', text: '¿Recomendaría nuestros servicios?' },
@@ -37,7 +39,7 @@ const SurveyForm = () => {
 
         setLoading(true);
         try {
-            await axios.post('http://localhost:5000/api/reviews', formData);
+            await axios.post(`${API_BASE_URL}/reviews`, formData);
             setSubmitted(true);
         } catch (error) {
             console.error('Error submitting survey:', error);

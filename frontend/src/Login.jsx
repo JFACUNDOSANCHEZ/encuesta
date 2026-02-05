@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { Lock, User } from 'lucide-react';
 import styles from './Login.module.css';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -17,7 +19,7 @@ const Login = () => {
         setError('');
 
         try {
-            const response = await axios.post('http://localhost:5000/api/login', { username, password });
+            const response = await axios.post(`${API_BASE_URL}/login`, { username, password });
             sessionStorage.setItem('token', response.data.token);
             sessionStorage.setItem('username', response.data.username);
             navigate('/admin');
